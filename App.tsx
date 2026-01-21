@@ -401,7 +401,7 @@ function App() {
               <h3 className="text-2xl font-bold text-gray-900 mb-2">1-op-1 Bijles</h3>
               <p className="text-gray-500 mb-6">Maximale persoonlijke aandacht</p>
               <div className="flex items-baseline mb-8">
-                <span className="text-5xl font-extrabold text-gray-900">€30</span>
+                <span className="text-5xl font-extrabold text-gray-900">€35</span>
                 <span className="text-gray-500 ml-2 font-medium">/ uur</span>
               </div>
               <ul className="space-y-4 mb-8">
