@@ -3,19 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="The Classlou - Bijles met aandacht en resultaat voor VMBO, HAVO en VWO. Wiskunde, Natuurkunde, Scheikunde en meer." />
-    <title>The Classlou</title>
+    <meta name="description" content="The Classlou - Professionele bijles met aandacht en resultaat voor VMBO, HAVO en VWO door Loaina en Arthur." />
+    <meta name="theme-color" content="#4F46E5" />
+    <title>The Classlou | Bijles met Aandacht</title>
+    
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         theme: {
           extend: {
             colors: {
-              primary: '#4F46E5', // Indigo 600
-              primaryHover: '#4338CA', // Indigo 700
-              secondary: '#FB923C', // Orange 400
-              background: '#F9FAFB', // Gray 50
-              colorbutton1: '#2563EB', // Blue 600
+              primary: '#4F46E5',
+              primaryHover: '#4338CA',
+              secondary: '#FB923C',
+              background: '#F9FAFB',
             },
             fontFamily: {
               sans: ['Inter', 'sans-serif'],
@@ -24,28 +26,57 @@
         },
       }
     </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
     <style>
-      body { font-family: 'Inter', sans-serif; }
+      body { 
+        font-family: 'Inter', sans-serif; 
+        overflow-x: hidden;
+      }
       html { 
         scroll-behavior: smooth; 
-        scroll-padding-top: 80px; /* Account for fixed header */
+        scroll-padding-top: 64px;
+      }
+      
+      /* Animation Utilities */
+      .animate-fade-in {
+        animation: fadeIn 0.4s ease-out forwards;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      
+      .animate-slide-down {
+        animation: slideDown 0.3s ease-out forwards;
+      }
+      @keyframes slideDown {
+        from { opacity: 0; height: 0; }
+        to { opacity: 1; height: auto; }
       }
     </style>
-  <script type="importmap">
-{
-  "imports": {
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
-    "react/": "https://aistudiocdn.com/react@^19.2.0/",
-    "react": "https://aistudiocdn.com/react@^19.2.0",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
-  }
-}
-</script>
-<link rel="stylesheet" href="/index.css">
-</head>
-  <body>
+
+    <!-- Import Map for ES Modules -->
+    <script type="importmap">
+    {
+      "imports": {
+        "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+        "react/": "https://aistudiocdn.com/react@^19.2.0/",
+        "react": "https://aistudiocdn.com/react@^19.2.0",
+        "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+        "react-dom": "https://aistudiocdn.com/react-dom@^19.2.0"
+      }
+    }
+    </script>
+  </head>
+  <body class="bg-background text-gray-800">
     <div id="root"></div>
-  <script type="module" src="/index.tsx"></script>
-</body>
+    
+    <!-- Entry point for the React application -->
+    <script type="module" src="index.tsx"></script>
+  </body>
 </html>
