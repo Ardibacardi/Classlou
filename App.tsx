@@ -715,8 +715,8 @@ function App() {
                   <div>
                     <label htmlFor="typePreference" className="block text-sm font-semibold text-gray-700 mb-2">Voorkeur *</label>
                     <select
-                      name="typePreference"
-                      id="typePreference"
+                      name="locaPreference"
+                      id="locaPreference"
                       className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow bg-gray-50 focus:bg-white"
                       value={formData.typePreference}
                       onChange={handleInputChange}
