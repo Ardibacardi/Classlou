@@ -474,10 +474,6 @@ function App() {
                   <CheckCircle2 size={20} className="text-secondary mr-3 flex-shrink-0" />
                   Persoonlijke uitleg van lastige stof
                 </li>
-                <li className="flex items-center text-gray-600">
-                  <CheckCircle2 size={20} className="text-secondary mr-3 flex-shrink-0" />
-                  4 uur fysieke training
-                </li>
               </ul>
               <a href="#register" className="block w-full text-center bg-white text-gray-900 font-bold py-4 rounded-xl border border-gray-200 hover:bg-white hover:shadow-md transition-all">
                 Kies Examen Training
@@ -508,10 +504,6 @@ function App() {
                 <li className="flex items-center text-gray-700 font-medium">
                   <CheckCircle2 size={20} className="text-primary mr-3 flex-shrink-0" />
                   Praktische toetstips en zelfvertrouwen
-                </li>
-                <li className="flex items-center text-gray-700 font-medium">
-                  <CheckCircle2 size={20} className="text-primary mr-3 flex-shrink-0" />
-                  3 uur fysieke training
                 </li>
               </ul>
               <a href="#register" className="block w-full text-center bg-primary text-white font-bold py-4 rounded-xl hover:bg-primaryHover transition-colors shadow-lg shadow-primary/20">
@@ -727,9 +719,6 @@ function App() {
                       <option value="Geen voorkeur">Geen voorkeur</option>
                     </select>
                   </div>
-                  </div>
-
-                  <div className="grid md:grid-cols-2 gap-8">
                   <div>
                     <label htmlFor="typePreference" className="block text-sm font-semibold text-gray-700 mb-2">Voorkeur Bijles *</label>
                     <select
@@ -746,6 +735,10 @@ function App() {
                       <option value="Cito Training">Cito Training</option>
                     </select>
                   </div>
+                  </div>
+
+                  <div className="grid md:grid-cols-2 gap-8">
+                  
                   <div>
                     <label htmlFor="availability" className="block text-sm font-semibold text-gray-700 mb-2">Voorkeur dagen/tijden</label>
                     <input
@@ -755,6 +748,18 @@ function App() {
                       placeholder="Bijv. Zaterdag, Zondag"
                       className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow bg-gray-50 focus:bg-white"
                       value={formData.availability}
+                      onChange={handleInputChange}
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="time" className="block text-sm font-semibold text-gray-700 mb-2"> Lestijd</label>
+                    <input
+                      type="float"
+                      name="time"
+                      id="time"
+                      required
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow bg-gray-50 focus:bg-white"
+                      value={formData.time}
                       onChange={handleInputChange}
                     />
                   </div>
