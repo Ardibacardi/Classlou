@@ -32,8 +32,10 @@ function App() {
     phone: '',
     schoolInfo: '',
     subjects: '',
-    typePreference: 'Online',
+    locaPreference: '',
+    typePreference: '',
     availability: '',
+    time: '', 
     comments: ''
   });
   const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
@@ -710,7 +712,7 @@ function App() {
                       name="locaPreference"
                       id="locaPreference"
                       className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow bg-gray-50 focus:bg-white"
-                      value={formData.typePreference}
+                      value={formData.locaPreference}
                       onChange={handleInputChange}
                     >
                       <option value="" disabled>Kies leslocatie</option>
