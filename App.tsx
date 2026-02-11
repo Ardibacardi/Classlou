@@ -705,7 +705,7 @@ function App() {
 
                 <div className="grid md:grid-cols-2 gap-8">
                   <div>
-                    <label htmlFor="typePreference" className="block text-sm font-semibold text-gray-700 mb-2">Voorkeur *</label>
+                    <label htmlFor="locaPreference" className="block text-sm font-semibold text-gray-700 mb-2">Voorkeur *</label>
                     <select
                       name="locaPreference"
                       id="locaPreference"
