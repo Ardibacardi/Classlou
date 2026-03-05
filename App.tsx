@@ -854,7 +854,7 @@ function App() {
           </div>
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-gray-800 text-center text-sm">
-          &copy; {new Date().getFullYear()} Loaina’s Classroom Hub. Alle rechten voorbehouden.
+          &copy; {new Date().getFullYear()} The Classlou. Alle rechten voorbehouden.
         </div>
       </footer>
     </div>
