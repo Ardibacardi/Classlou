@@ -40,6 +40,26 @@ function App() {
   });
   const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
+  useEffect(() => {
+    const scrollToHash = () => {
+      const hash = window.location.hash;
+      if (!hash) return;
+  
+      const id = hash.replace("#", "");
+      const el = document.getElementById(id);
+      if (!el) return;
+  
+      // give React a moment to render the section
+      setTimeout(() => {
+        el.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    };
+  
+    scrollToHash();
+    window.addEventListener("hashchange", scrollToHash);
+    return () => window.removeEventListener("hashchange", scrollToHash);
+  }, []);
+
   // Scroll Spy to update active navigation link
   useEffect(() => {
     const handleScroll = () => {
@@ -59,7 +79,10 @@ function App() {
       if (current !== activeSection) {
         setActiveSection(current);
       }
+      
     };
+
+    
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
