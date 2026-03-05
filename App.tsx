@@ -94,18 +94,8 @@ function App() {
       });
 
       if (response.ok) {
-        setFormStatus('success');
-        setFormData({
-          studentName: '',
-          parentName: '',
-          email: '',
-          phone: '',
-          schoolInfo: '',
-          subjects: '',
-          typePreference: 'Online',
-          availability: '',
-          comments: ''
-        });
+        window.location.href = "/succes.html";
+        return;
       } else {
         console.error("Submission failed");
         setFormStatus('error');
@@ -579,226 +569,207 @@ function App() {
 
       {/* Registration Section */}
       <section id="register" className="py-20 bg-gray-50">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 border border-gray-100">
-            <div className="text-center mb-10">
-              <h2 className="text-3xl font-bold text-gray-900">Inschrijven</h2>
-              <p className="mt-2 text-gray-600">Vul het formulier in, dan neem ik zo snel mogelijk contact op.</p>
-            </div>
+  <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 border border-gray-100">
+      <div className="text-center mb-10">
+        <h2 className="text-3xl font-bold text-gray-900">Inschrijven</h2>
+        <p className="mt-2 text-gray-600">
+          Vul het formulier in, dan neem ik zo snel mogelijk contact op.
+        </p>
+      </div>
 
-            {formStatus === 'success' ? (
-              <div className="bg-green-50 border border-green-200 rounded-xl p-12 text-center animate-fade-in">
-                <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 text-green-600 shadow-sm">
-                  <CheckCircle2 size={40} />
-                </div>
-                <h3 className="text-2xl font-bold text-green-800 mb-3">Bedankt voor je aanmelding!</h3>
-                <p className="text-green-700 text-lg">De gegevens zijn succesvol verstuurd naar The Classlou.</p>
-                <p className="text-green-600 mt-2">Je ontvangt binnenkort een reactie per mail.</p>
-                <button 
-                  onClick={() => setFormStatus('idle')}
-                  className="mt-8 px-6 py-2 bg-white border border-green-200 text-green-700 rounded-full font-medium hover:bg-green-50 transition-colors"
-                >
-                  Nog een aanmelding doen
-                </button>
-              </div>
-            ) : formStatus === 'error' ? (
-              <div className="bg-red-50 border border-red-200 rounded-xl p-8 text-center animate-fade-in mb-6">
-                <p className="text-red-800 font-bold mb-2">Er ging iets mis bij het versturen.</p>
-                <p className="text-red-600 mb-4">Probeer het opnieuw of stuur direct een mail.</p>
-                <div className="flex gap-4 justify-center">
-                  <button 
-                    onClick={() => setFormStatus('idle')}
-                    className="px-4 py-2 bg-white border border-red-200 text-red-700 rounded-lg"
-                  >
-                    Probeer opnieuw
-                  </button>
-                  <a 
-                    href={`mailto:theclasslou@gmail.com?subject=Aanmelding via Website&body=${encodeURIComponent("Ik wil me graag aanmelden. " + JSON.stringify(formData))}`}
-                    className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700"
-                  >
-                    Open Mail App
-                  </a>
-                </div>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-8">
-                <div className="grid md:grid-cols-2 gap-8">
-                  <div>
-                    <label htmlFor="studentName" className="block text-sm font-semibold text-gray-700 mb-2">Naam Leerling *</label>
-                    <input
-                      type="text"
-                      name="studentName"
-                      id="studentName"
-                      required
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow bg-gray-50 focus:bg-white"
-                      value={formData.studentName}
-                      onChange={handleInputChange}
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="parentName" className="block text-sm font-semibold text-gray-700 mb-2">Naam Ouder/Verzorger</label>
-                    <input
-                      type="text"
-                      name="parentName"
-                      id="parentName"
-                      placeholder="Verplicht bij <18 jaar"
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow bg-gray-50 focus:bg-white"
-                      value={formData.parentName}
-                      onChange={handleInputChange}
-                    />
-                  </div>
-                </div>
+      {formStatus === 'error' ? (
+        <div className="bg-red-50 border border-red-200 rounded-xl p-8 text-center animate-fade-in mb-6">
+          <p className="text-red-800 font-bold mb-2">
+            Er ging iets mis bij het versturen.
+          </p>
+          <p className="text-red-600 mb-4">
+            Probeer het opnieuw of stuur direct een mail.
+          </p>
 
-                <div className="grid md:grid-cols-2 gap-8">
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">E-mailadres *</label>
-                    <input
-                      type="email"
-                      name="email"
-                      id="email"
-                      required
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow bg-gray-50 focus:bg-white"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-2">Telefoonnummer *</label>
-                    <input
-                      type="tel"
-                      name="phone"
-                      id="phone"
-                      required
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow bg-gray-50 focus:bg-white"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                    />
-                  </div>
-                </div>
+          <div className="flex gap-4 justify-center">
+            <button
+              onClick={() => setFormStatus('idle')}
+              className="px-4 py-2 bg-white border border-red-200 text-red-700 rounded-lg"
+            >
+              Probeer opnieuw
+            </button>
 
-                <div className="grid md:grid-cols-2 gap-8">
-                  <div>
-                    <label htmlFor="schoolInfo" className="block text-sm font-semibold text-gray-700 mb-2">School + Leerjaar *</label>
-                    <input
-                      type="text"
-                      name="schoolInfo"
-                      id="schoolInfo"
-                      placeholder="Bijv. Comenius College, 3 HAVO"
-                      required
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow bg-gray-50 focus:bg-white"
-                      value={formData.schoolInfo}
-                      onChange={handleInputChange}
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="subjects" className="block text-sm font-semibold text-gray-700 mb-2">Vak(ken) *</label>
-                    <input
-                      type="text"
-                      name="subjects"
-                      id="subjects"
-                      placeholder="Bijv. Wiskunde B, Natuurkunde"
-                      required
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow bg-gray-50 focus:bg-white"
-                      value={formData.subjects}
-                      onChange={handleInputChange}
-                    />
-                  </div>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-8">
-                  <div>
-                    <label htmlFor="locaPreference" className="block text-sm font-semibold text-gray-700 mb-2">Voorkeur *</label>
-                    <select
-                      name="locaPreference"
-                      id="locaPreference"
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow bg-gray-50 focus:bg-white"
-                      value={formData.locaPreference}
-                      onChange={handleInputChange}
-                    >
-                      <option value="" disabled>Kies leslocatie</option>
-                      <option value="Online">Online</option>
-                      <option value="Fysiek">Fysiek (Regio Amsterdam)</option>
-                      <option value="Geen voorkeur">Geen voorkeur</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label htmlFor="typePreference" className="block text-sm font-semibold text-gray-700 mb-2">Voorkeur Bijles *</label>
-                    <select
-                      name="typePreference"
-                      id="typePreference"
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow bg-gray-50 focus:bg-white"
-                      value={formData.typePreference}
-                      onChange={handleInputChange}
-                    >
-                      <option value="" disabled>Kies type les</option>
-                      <option value="1-op-1 Bijles">1-op-1</option>
-                      <option value="Groepsles">Groepsles</option>
-                      <option value="Examen Training">Examen Training</option>
-                      <option value="Cito Training">Cito Training</option>
-                    </select>
-                  </div>
-                  </div>
-
-                  <div className="grid md:grid-cols-2 gap-8">
-                  
-                  <div>
-                    <label htmlFor="availability" className="block text-sm font-semibold text-gray-700 mb-2">Voorkeur dagen/tijden</label>
-                    <input
-                      type="text"
-                      name="availability"
-                      id="availability"
-                      placeholder="Bijv. Zaterdag, Zondag"
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow bg-gray-50 focus:bg-white"
-                      value={formData.availability}
-                      onChange={handleInputChange}
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="time" className="block text-sm font-semibold text-gray-700 mb-2"> Lestijd</label>
-                    <input
-                      type="float"
-                      name="time"
-                      id="time"
-                      required
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow bg-gray-50 focus:bg-white"
-                      value={formData.time}
-                      onChange={handleInputChange}
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label htmlFor="comments" className="block text-sm font-semibold text-gray-700 mb-2">Extra opmerkingen</label>
-                  <textarea
-                    name="comments"
-                    id="comments"
-                    rows={3}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow bg-gray-50 focus:bg-white"
-                    value={formData.comments}
-                    onChange={handleInputChange}
-                  ></textarea>
-                </div>
-
-                <div className="text-xs text-gray-500 mt-2">
-                  * Door dit formulier te versturen ga je akkoord met onze privacyverklaring. Gegevens worden alleen gebruikt voor deze aanvraag.
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={formStatus === 'submitting'}
-                  className={`w-full flex items-center justify-center px-8 py-4 border border-transparent text-lg font-bold rounded-xl text-white ${formStatus === 'submitting' ? 'bg-indigo-400' : 'bg-primary hover:bg-primaryHover'} transition-all shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-indigo-300`}
-                >
-                  {formStatus === 'submitting' ? 'Versturen...' : (
-                    <>
-                      Verstuur Aanmelding <Send className="ml-2" size={20} />
-                    </>
-                  )}
-                </button>
-              </form>
-            )}
+            <a
+              href={`mailto:theclasslou@gmail.com?subject=Aanmelding via Website&body=${encodeURIComponent(
+                "Ik wil me graag aanmelden. " + JSON.stringify(formData)
+              )}`}
+              className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700"
+            >
+              Open Mail App
+            </a>
           </div>
         </div>
-      </section>
+      ) : (
+        <form onSubmit={handleSubmit} className="space-y-8">
+
+          {/* STUDENT + PARENT */}
+          <div className="grid md:grid-cols-2 gap-8">
+            <div>
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
+                Naam Leerling *
+              </label>
+              <input
+                type="text"
+                name="studentName"
+                required
+                value={formData.studentName}
+                onChange={handleInputChange}
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-gray-50 focus:ring-2 focus:ring-primary focus:border-transparent"
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
+                Naam Ouder/Verzorger
+              </label>
+              <input
+                type="text"
+                name="parentName"
+                placeholder="Verplicht bij <18 jaar"
+                value={formData.parentName}
+                onChange={handleInputChange}
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-gray-50 focus:ring-2 focus:ring-primary focus:border-transparent"
+              />
+            </div>
+          </div>
+
+          {/* EMAIL + PHONE */}
+          <div className="grid md:grid-cols-2 gap-8">
+            <div>
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
+                E-mailadres *
+              </label>
+              <input
+                type="email"
+                name="email"
+                required
+                value={formData.email}
+                onChange={handleInputChange}
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-gray-50 focus:ring-2 focus:ring-primary focus:border-transparent"
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
+                Telefoonnummer *
+              </label>
+              <input
+                type="tel"
+                name="phone"
+                required
+                value={formData.phone}
+                onChange={handleInputChange}
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-gray-50 focus:ring-2 focus:ring-primary focus:border-transparent"
+              />
+            </div>
+          </div>
+
+          {/* SCHOOL + SUBJECTS */}
+          <div className="grid md:grid-cols-2 gap-8">
+            <div>
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
+                School + Leerjaar *
+              </label>
+              <input
+                type="text"
+                name="schoolInfo"
+                required
+                placeholder="Bijv. Comenius College, 3 HAVO"
+                value={formData.schoolInfo}
+                onChange={handleInputChange}
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-gray-50 focus:ring-2 focus:ring-primary focus:border-transparent"
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
+                Vak(ken) *
+              </label>
+              <input
+                type="text"
+                name="subjects"
+                required
+                placeholder="Bijv. Wiskunde B"
+                value={formData.subjects}
+                onChange={handleInputChange}
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-gray-50 focus:ring-2 focus:ring-primary focus:border-transparent"
+              />
+            </div>
+          </div>
+
+          {/* LOCATION + TYPE */}
+          <div className="grid md:grid-cols-2 gap-8">
+            <div>
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
+                Voorkeur *
+              </label>
+              <select
+                name="locaPreference"
+                value={formData.locaPreference}
+                onChange={handleInputChange}
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-gray-50"
+              >
+                <option value="">Kies leslocatie</option>
+                <option value="Online">Online</option>
+                <option value="Fysiek">Fysiek</option>
+                <option value="Geen voorkeur">Geen voorkeur</option>
+              </select>
+            </div>
+
+            <div>
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
+                Voorkeur Bijles *
+              </label>
+              <select
+                name="typePreference"
+                value={formData.typePreference}
+                onChange={handleInputChange}
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-gray-50"
+              >
+                <option value="">Kies type les</option>
+                <option value="1-op-1 Bijles">1-op-1</option>
+                <option value="Groepsles">Groepsles</option>
+                <option value="Examen Training">Examen Training</option>
+                <option value="Cito Training">Cito Training</option>
+              </select>
+            </div>
+          </div>
+
+          {/* COMMENTS */}
+          <div>
+            <label className="block text-sm font-semibold text-gray-700 mb-2">
+              Extra opmerkingen
+            </label>
+            <textarea
+              name="comments"
+              rows={3}
+              value={formData.comments}
+              onChange={handleInputChange}
+              className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-gray-50"
+            />
+          </div>
+
+          <button
+            type="submit"
+            disabled={formStatus === "submitting"}
+            className="w-full flex items-center justify-center px-8 py-4 text-lg font-bold rounded-xl text-white bg-primary hover:bg-primaryHover shadow-lg"
+          >
+            {formStatus === "submitting"
+              ? "Versturen..."
+              : "Verstuur Aanmelding"}
+          </button>
+
+        </form>
+      )}
+    </div>
+  </div>
+</section>
 
       {/* Contact Section */}
       <section id="contact" className="py-20 bg-white border-t border-gray-100">
