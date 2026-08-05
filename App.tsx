@@ -19,7 +19,6 @@ import {
 import { NAV_LINKS, REVIEWS, FAQS, SUBJECTS, LEVELS_INFO, FEATURES } from './constants';
 import { FormData } from './types';
 import loainaFoto from "./assets/loainafoto.jpeg";
-import arthurFoto from "./assets/arthurfoto.jpeg";
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -275,42 +274,6 @@ function App() {
           </blockquote>
         </div>
       </div>
-
-
-            {/* Person 2: Placeholder / Second Tutor */}
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              {/* Text (Left on Desktop) */}
-              <div className="order-2 md:order-1">
-                <h3 className="text-xl text-primary font-semibold mb-4">En ik ben Arthur!</h3>
-                <p className="text-gray-600 mb-4 leading-relaxed text-lg">
-                Ik heb een vwo beta-
-                dubbelprofiel (NT en NG) afgerond en studeer nu
-                Artificial Intelligence aan de VU. Mijn sterkste vak is
-                wiskunde B (9,4 voor CE) en afgesloten met een 9,0.
-                </p>
-                <p className="text-gray-600 mb-8 leading-relaxed text-lg">
-                Daarnaast vind ik het leuk om anderen te helpen.
-                </p>
-                <blockquote className="border-l-4 border-primary pl-6 italic text-gray-800 bg-indigo-50 py-4 pr-4 rounded-r-lg shadow-sm">
-                  "Leren mag best leuk zijn, zolang je maar snapt wat je doet."
-                </blockquote>
-              </div>
-              
-              {/* Image (Right on Desktop) */}
-              <div className="relative group order-1 md:order-2">
-                <div className="aspect-[4/5] md:aspect-[2/3] bg-gray-100 rounded-2xl overflow-hidden shadow-2xl flex items-center justify-center text-gray-400 border-4 border-white group-hover:shadow-secondary/20 transition-shadow duration-500">
-                  <img
-                    src={arthurFoto}
-                    alt="Arthur"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="absolute -bottom-6 -left-6 bg-primary p-6 rounded-xl shadow-xl hidden md:block transform -rotate-3 transition-transform group-hover:rotate-0">
-                  <p className="text-white font-bold text-lg">"Enthousiast & Betrokken"</p>
-                </div>
-              </div>
-            </div>
-
           </div>
         </div>
       </section>
