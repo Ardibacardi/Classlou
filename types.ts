@@ -30,13 +30,20 @@ export enum LessonType {
 }
 
 export interface FormData {
-  studentName: string;
-  parentName: string;
+  studentFirstName: string;
+  studentLastName: string;
+  parentFirstName: string;
+  parentLastName: string;
   email: string;
   phone: string;
+  address: string;
+  postalCode: string;
+  city: string;
   schoolInfo: string;
   subjects: string;
+  locaPreference: string;
   typePreference: string;
   availability: string;
+  time: string;
   comments: string;
 }

@@ -25,10 +25,15 @@ function App() {
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
   const [activeSection, setActiveSection] = useState('');
   const [formData, setFormData] = useState<FormData>({
-    studentName: '',
-    parentName: '',
+    studentFirstName: '',
+    studentLastName: '',
+    parentFirstName: '',
+    parentLastName: '',
     email: '',
     phone: '',
+    address: '',
+    postalCode: '',
+    city: '',
     schoolInfo: '',
     subjects: '',
     locaPreference: '',
@@ -109,7 +114,7 @@ function App() {
           'Accept': 'application/json'
         },
         body: JSON.stringify({
-          _subject: `Nieuwe Bijles Aanmelding: ${formData.studentName}`,
+          _subject: `Nieuwe Bijles Aanmelding: ${formData.studentFirstName} ${formData.studentLastName}`,
           _template: "table", // Formats email as a nice table
           ...formData
         })
@@ -594,17 +599,17 @@ function App() {
       ) : (
         <form onSubmit={handleSubmit} className="space-y-8">
 
-          {/* STUDENT + PARENT */}
+          {/* STUDENT */}
           <div className="grid md:grid-cols-2 gap-8">
             <div>
               <label className="block text-sm font-semibold text-gray-700 mb-2">
-                Naam Leerling *
+                Voornaam Leerling *
               </label>
               <input
                 type="text"
-                name="studentName"
+                name="studentFirstName"
                 required
-                value={formData.studentName}
+                value={formData.studentFirstName}
                 onChange={handleInputChange}
                 className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-gray-50 focus:ring-2 focus:ring-primary focus:border-transparent"
               />
@@ -612,13 +617,92 @@ function App() {
 
             <div>
               <label className="block text-sm font-semibold text-gray-700 mb-2">
-                Naam Ouder/Verzorger
+                Achternaam Leerling *
               </label>
               <input
                 type="text"
-                name="parentName"
+                name="studentLastName"
+                required
+                value={formData.studentLastName}
+                onChange={handleInputChange}
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-gray-50 focus:ring-2 focus:ring-primary focus:border-transparent"
+              />
+            </div>
+          </div>
+
+          {/* PARENT */}
+          <div className="grid md:grid-cols-2 gap-8">
+            <div>
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
+                Voornaam Ouder/Verzorger
+              </label>
+              <input
+                type="text"
+                name="parentFirstName"
                 placeholder="Verplicht bij <18 jaar"
-                value={formData.parentName}
+                value={formData.parentFirstName}
+                onChange={handleInputChange}
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-gray-50 focus:ring-2 focus:ring-primary focus:border-transparent"
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
+                Achternaam Ouder/Verzorger
+              </label>
+              <input
+                type="text"
+                name="parentLastName"
+                placeholder="Verplicht bij <18 jaar"
+                value={formData.parentLastName}
+                onChange={handleInputChange}
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-gray-50 focus:ring-2 focus:ring-primary focus:border-transparent"
+              />
+            </div>
+          </div>
+
+          {/* ADDRESS */}
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="md:col-span-2">
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
+                Adres *
+              </label>
+              <input
+                type="text"
+                name="address"
+                required
+                placeholder="Straat + huisnummer"
+                value={formData.address}
+                onChange={handleInputChange}
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-gray-50 focus:ring-2 focus:ring-primary focus:border-transparent"
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
+                Postcode *
+              </label>
+              <input
+                type="text"
+                name="postalCode"
+                required
+                placeholder="Bijv. 1234 AB"
+                value={formData.postalCode}
+                onChange={handleInputChange}
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-gray-50 focus:ring-2 focus:ring-primary focus:border-transparent"
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
+                Stad *
+              </label>
+              <input
+                type="text"
+                name="city"
+                required
+                placeholder="Bijv. Amsterdam"
+                value={formData.city}
                 onChange={handleInputChange}
                 className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-gray-50 focus:ring-2 focus:ring-primary focus:border-transparent"
               />
