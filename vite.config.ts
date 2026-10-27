@@ -16,6 +16,8 @@ export default defineConfig(({ mode }) => {
           input: {
             main: path.resolve(__dirname, 'index.html'),
             cito: path.resolve(__dirname, 'cito.html'),
+            citoBetalen: path.resolve(__dirname, 'cito-betalen.html'),
+            citoBevestiging: path.resolve(__dirname, 'cito-bevestiging.html'),
           },
         },
       },
