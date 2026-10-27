@@ -158,6 +158,7 @@ const CitoPage: React.FC = () => {
   const formSectionRef = useRef<HTMLDivElement | null>(null);
 
   const slot = useMemo(() => CITO_TRAINING_SLOTS.find((s) => s.id === form.slotId), [form.slotId]);
+  const hasOnlineSlot = useMemo(() => CITO_TRAINING_SLOTS.some((s) => /online/i.test(s.location)), []);
   const errorList = useMemo(() => Object.entries(errors).map(([k, v]) => ({ field: k as keyof FormState, message: v as string })), [errors]);
 
   /* keep the funnel on the same step after a page refresh */
@@ -489,6 +490,15 @@ const CitoPage: React.FC = () => {
               </ul>
               {CITO_TRAINING_SLOTS.length === 0 && (
                 <p className="mt-4 text-gray-600">Nieuwe momenten worden binnenkort geplaatst. Neem gerust contact op voor de mogelijkheden.</p>
+              )}
+              {!hasOnlineSlot && (
+                <p className="mt-4 text-gray-600">
+                  Online training nodig? Er staan nu alleen fysieke momenten in de lijst. Mail ons op{' '}
+                  <a className="font-semibold text-primary underline" href={`mailto:${CONTACT_EMAIL}`}>
+                    {CONTACT_EMAIL}
+                  </a>{' '}
+                  en we plannen een online moment in overleg.
+                </p>
               )}
             </div>
           </div>
@@ -904,7 +914,7 @@ const CitoPage: React.FC = () => {
                 },
                 {
                   q: 'Is de training fysiek of online?',
-                  a: `${CITO_LOCATIONS}. Bij online training krijgt uw kind de boekjes vooraf toegestuurd of tijdens de eerste les uitgereikt.`,
+                  a: `${CITO_LOCATIONS}. De fysieke trainingen staan bij de beschikbare momenten. Voor een online training plannen we samen een moment; uw kind krijgt de boekjes dan vooraf toegestuurd.`,
                 },
                 {
                   q: 'Hoe betaal ik?',

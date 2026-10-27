@@ -2,16 +2,15 @@
 //  CITO-LANDINGSPAGINA  -  INSTELLINGEN
 //  Alles wat hieronder staat, kunt u zelf aanpassen. De pagina neemt het
 //  meteen over: sla op, de site wordt automatisch opnieuw gebouwd en geplaatst.
-//  Regels met "AANPASSEN" zijn de plekken waar nog echte gegevens van The
-//  Classlou in moeten.
+//  Laatst bijgewerkt: 27 oktober 2026
 // ============================================================================
 
 // ---------------------------------------------------------------------------
-// 1. BETAALVERZOEK  (AANPASSEN: plak hier de link van het ING-betaalverzoek)
-//    Zolang dit leeg is, toont de pagina netjes "betaalverzoek volgt per
-//    e-mail" in plaats van een knop die nergens heen gaat.
+// 1. BETAALVERZOEK
+//    De link van het ING-betaalverzoek. Zolang dit leeg is, toont de pagina
+//    "betaalverzoek volgt per e-mail" in plaats van een knop.
 // ---------------------------------------------------------------------------
-export const ING_PAYMENT_LINK = "";
+export const ING_PAYMENT_LINK = "https://www.ing.nl/payreq/m/Zca11HZGkwgSSzWyr1xvPFU5UMeyG3SQ";
 
 // ---------------------------------------------------------------------------
 // 2. PRIJS EN DUUR
@@ -22,9 +21,8 @@ export const CITO_DURATION = "3 uur";
 
 // ---------------------------------------------------------------------------
 // 3. BESCHIKBARE TRAININGSMOMENTEN
-//    AANPASSEN: dit zijn voorbeeldmomenten. Zet hier alleen momenten die
-//    echt beschikbaar zijn, met de juiste datum en tijd. Voeg gerust
-//    momenten toe of laat ze weg.
+//    Zet hier alleen momenten die echt beschikbaar zijn, met de juiste datum
+//    en tijd. Voeg gerust momenten toe of laat ze weg.
 // ---------------------------------------------------------------------------
 export interface TrainingSlot {
   id: string;
@@ -34,19 +32,17 @@ export interface TrainingSlot {
 }
 
 export const CITO_TRAINING_SLOTS: TrainingSlot[] = [
-  { id: "za-31okt-10", day: "Zaterdag 31 oktober 2026", time: "10:00 - 13:00", location: "Fysiek, regio Amsterdam" },
-  { id: "za-31okt-14", day: "Zaterdag 31 oktober 2026", time: "14:00 - 17:00", location: "Fysiek, regio Amsterdam" },
-  { id: "za-07nov-10", day: "Zaterdag 7 november 2026", time: "10:00 - 13:00", location: "Online (Teams of Zoom)" },
-  { id: "za-14nov-10", day: "Zaterdag 14 november 2026", time: "10:00 - 13:00", location: "Fysiek, regio Amsterdam" },
+  { id: "zo-08nov-1315", day: "Zondag 8 november 2026", time: "13:15 - 16:15", location: "Fysiek, Amsterdam Noord" },
+  { id: "zo-15nov-1315", day: "Zondag 15 november 2026", time: "13:15 - 16:15", location: "Fysiek, Amsterdam Noord" },
 ];
 
 // ---------------------------------------------------------------------------
-// 4. PRAKTISCHE GEGEVENS  (AANPASSEN waar nodig)
+// 4. PRAKTISCHE GEGEVENS
 // ---------------------------------------------------------------------------
-export const CITO_TARGET_GROUP = "Groep 7 en 8 van de basisschool, ter voorbereiding op de Cito-eindtoets";
-export const CITO_FORMAT = "In overleg: 1-op-1 of in een klein groepje"; // AANPASSEN
-export const CITO_LOCATIONS = "Fysiek in regio Amsterdam of online via Teams/Zoom";
-export const CITO_CANCEL = "Kosteloos verzetten of annuleren tot 48 uur voor de training";
+export const CITO_TARGET_GROUP = "Groep 5, 6, 7 en 8 van de basisschool";
+export const CITO_FORMAT = "In een klein groepje";
+export const CITO_LOCATIONS = "Fysiek in Amsterdam Noord of online via Teams of Zoom";
+export const CITO_CANCEL = "Kosteloos verzetten of annuleren tot 72 uur voor de training";
 
 // ---------------------------------------------------------------------------
 // 5. CONTACT EN AFLEVERING VAN AANMELDINGEN
