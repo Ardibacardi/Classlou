@@ -11,6 +11,14 @@ export default defineConfig(({ mode }) => {
       },
       plugins: [react()],
       base: "/",
+      build: {
+        rollupOptions: {
+          input: {
+            main: path.resolve(__dirname, 'index.html'),
+            cito: path.resolve(__dirname, 'cito.html'),
+          },
+        },
+      },
       define: {
         'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),
         'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY)

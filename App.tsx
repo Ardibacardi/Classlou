@@ -489,7 +489,7 @@ function App() {
                   Praktische toetstips en zelfvertrouwen
                 </li>
               </ul>
-              <a href="#register" className="block w-full text-center bg-primary text-white font-bold py-4 rounded-xl hover:bg-primaryHover transition-colors shadow-lg shadow-primary/20">
+              <a href="/cito.html" className="block w-full text-center bg-primary text-white font-bold py-4 rounded-xl hover:bg-primaryHover transition-colors shadow-lg shadow-primary/20">
                 Kies Cito Training
               </a>
             </div>
