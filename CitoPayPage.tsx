@@ -114,7 +114,7 @@ const CitoPayPage: React.FC = () => {
         </a>
       }
       stickyBar={
-        !sendFailed ? (
+        (
           <StickyBar>
             <div className="flex items-center gap-3">
               <div className="leading-tight">
@@ -135,7 +135,7 @@ const CitoPayPage: React.FC = () => {
               )}
             </div>
           </StickyBar>
-        ) : undefined
+        )
       }
     >
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -247,24 +247,30 @@ const CitoPayPage: React.FC = () => {
           </div>
 
           {/* ---------------------------------------- betalen */}
-          {!sendFailed &&
-            (ING_PAYMENT_LINK ? (
-              <a
-                href={ING_PAYMENT_LINK}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-6 w-full flex items-center justify-center gap-2 px-8 py-4 text-lg font-bold rounded-xl text-white bg-primary hover:bg-primaryHover shadow-lg"
-              >
-                <CreditCard size={20} /> Betalen via ING
-              </a>
-            ) : (
-              <div className="mt-6 rounded-xl border border-gray-200 bg-white p-5 text-center">
-                <p className="font-semibold text-gray-900">Uw betaalverzoek volgt per e-mail</p>
-                <p className="mt-1 text-gray-600 text-sm">
-                  Wij sturen u het betaalverzoek van ING naar {state.form.email || 'uw e-mailadres'}, samen met de bevestiging van uw aanmelding.
-                </p>
-              </div>
-            ))}
+          {sendFailed && (
+            <p className="mt-6 rounded-xl border border-red-200 bg-red-50 p-4 text-red-900 text-[15px]">
+              <strong>Stuur eerst uw aanmelding opnieuw</strong> met de knop hierboven, of mail ons met "Liever mailen". Lukt dat allebei niet? Dan kunt u hieronder wel alvast
+              betalen; stuur ons in dat geval ook een bericht, zodat wij uw aanmelding erbij kunnen zoeken.
+            </p>
+          )}
+
+          {ING_PAYMENT_LINK ? (
+            <a
+              href={ING_PAYMENT_LINK}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-6 w-full flex items-center justify-center gap-2 px-8 py-4 text-lg font-bold rounded-xl text-white bg-primary hover:bg-primaryHover shadow-lg"
+            >
+              <CreditCard size={20} /> Betalen via ING
+            </a>
+          ) : (
+            <div className="mt-6 rounded-xl border border-gray-200 bg-white p-5 text-center">
+              <p className="font-semibold text-gray-900">Uw betaalverzoek volgt per e-mail</p>
+              <p className="mt-1 text-gray-600 text-sm">
+                Wij sturen u het betaalverzoek van ING naar {state.form.email || 'uw e-mailadres'}, samen met de bevestiging van uw aanmelding.
+              </p>
+            </div>
+          )}
 
           {/* ---------------------------------------- al betaald? */}
           <div className="mt-5 rounded-xl border border-gray-200 p-5">
