@@ -2,7 +2,7 @@
 //  CITO-LANDINGSPAGINA  -  INSTELLINGEN
 //  Alles wat hieronder staat, kunt u zelf aanpassen. De pagina neemt het
 //  meteen over: sla op, de site wordt automatisch opnieuw gebouwd en geplaatst.
-//  Laatst bijgewerkt: 27 oktober 2026
+//  Laatst bijgewerkt: 24 november 2026
 // ============================================================================
 
 // ---------------------------------------------------------------------------
@@ -32,8 +32,8 @@ export interface TrainingSlot {
 }
 
 export const CITO_TRAINING_SLOTS: TrainingSlot[] = [
-  { id: "zo-08nov-1315", day: "Zondag 8 november 2026", time: "13:15 - 16:15", location: "Fysiek, Amsterdam Noord" },
-  { id: "zo-15nov-1315", day: "Zondag 15 november 2026", time: "13:15 - 16:15", location: "Fysiek, Amsterdam Noord" },
+  { id: "zo-13dec-1315", day: "Zondag 13 december 2026", time: "13:15 - 16:15", location: "Fysiek, Amsterdam Noord" },
+  { id: "zo-20dec-1315", day: "Zondag 20 december 2026", time: "13:15 - 16:15", location: "Fysiek, Amsterdam Noord" },
 ];
 
 // ---------------------------------------------------------------------------
